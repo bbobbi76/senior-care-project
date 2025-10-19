@@ -1,5 +1,0 @@
-.env 파일을 SENIOR-CARE-PROJECT 폴더에 생성하고 
-
-SPRING_CLOUD_GCP_PROJECT_ID=내-실제-GCP-프로젝트-ID를 입력하고
-
-내-실제-GCP-프로젝트-ID 부분을 내 실제 GCP 프로젝트 ID로 변경
