@@ -1,0 +1,22 @@
+services:
+  backend:
+    build: ./backend
+    container_name: senior-care-backend
+    volumes:
+      # 컨테이너 내부 파일명을 service_key.json으로 변경 Windows 캐시/권한 문제를 우회
+      - $PWD/backend/gcp-service-account.json:/app/service_key.json
+    
+    env_file:
+      - .env
+
+    environment:
+      - SPRING_CLOUD_GCP_PROJECT_ID=${SPRING_CLOUD_GCP_PROJECT_ID}
+      - SPRING_CLOUD_GCP_CREDENTIALS_LOCATION=/app/service_key.json
+
+  frontend:
+    build: ./frontend
+    container_name: senior-care-frontend
+    ports:
+      - "5173:80"
+    depends_on:
+      - backend
